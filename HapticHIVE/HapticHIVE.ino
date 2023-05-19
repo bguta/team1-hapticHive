@@ -18,24 +18,28 @@ int nextAnimationM2andM3 = 0;
 double currentHeartRate = 0;
 double respiratoryRate = 0;
 
+// situation variables
+int s1 = 0;
+int s2 = 0;
+
 /**
  * Called whenever a new heart rate reading is received from the smartwatch. 
  * The function gives the time in ms at which the measurement was taken (*time*) and the heart rate in bpm (*bpm*).
  **/
 void heartRateCallback(unsigned int time, double bpm) {
-  Serial.print("[");
-  Serial.print(time);
-  Serial.print("] heart rate:");
-  Serial.println(bpm);
+  // Serial.print("[");
+  // Serial.print(time);
+  // Serial.print("] heart rate:");
+  // Serial.println(bpm);
 
 
-  currentHeartRate = bpm; // save heartrate reading
-  respiratoryRate = currentHeartRate/4; // rought estimation of the respiratory rate
+  // currentHeartRate = bpm; // save heartrate reading
+  // respiratoryRate = currentHeartRate/4; // rought estimation of the respiratory rate
 
-  Serial.print("[");
-  Serial.print(time);
-  Serial.print("] heart rate:");
-  Serial.println(respiratoryRate);
+  // Serial.print("[");
+  // Serial.print(time);
+  // Serial.print("] respiratory rate:");
+  // Serial.println(respiratoryRate);
 }
 
 /**
@@ -71,7 +75,9 @@ void gyroscopeCallback(unsigned int time, double xRot, double yRot, double zRot)
  * The function gives the time in ms at which the measurement was taken (*time*) and the light measurement in lux (*lux*).
  **/
 void lightCallback(unsigned int time, double lux) {
-  Serial.print("light:");
+  Serial.print("[");
+  Serial.print(time);
+  Serial.print("] lux:");
   Serial.println(lux);
 }
 
@@ -80,8 +86,8 @@ void lightCallback(unsigned int time, double lux) {
  * The function gives the time in ms at which the measurement was taken (*time*) and the number of steps since the smartwatch is started (*steps*).
  **/
 void stepCounterCallback(unsigned int time, double steps) {
-  Serial.print("step counter:");
-  Serial.println(steps);
+  // Serial.print("step counter:");
+  // Serial.println(steps);
 }
 
 
